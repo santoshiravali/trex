@@ -1,0 +1,30 @@
+const Engine=Matter.Engine
+const World=Matter.World
+const Bodies=Matter.Bodies
+
+var engine,world,o;
+function setup() {
+  createCanvas(400,400);
+  engine=Engine.create();
+  world=engine.world;
+
+ var o_options = {
+    isStatic:true
+
+ }
+
+  o=Bodies.rectangle(200,100,50,50,o_options)
+  World.add(world,o)
+
+  console.log(o)
+  console.log(o.type);
+  console.log(o.position.x);
+  console.log(o.position.y);
+}
+
+function draw() {
+  background(0); 
+  Engine.update(engine);
+  rectMode(CENTER);
+  rect(o.position.x,o.position.y,100,100);
+}
